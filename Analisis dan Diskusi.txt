@@ -1,0 +1,27 @@
+Analisis dan Diskusi
+
+Analisis :
+
+1.KNN (K-Nearest Neighbors) : Program ini merupakan implementasi sistem pendeteksi warna menggunakan model K-Nearest Neighbors (KNN). Program bekerja dengan mengambil gambar dari kamera, kemudian memproses nilai warna piksel di tengah layar dan mengklasifikasikannya menjadi salah satu kategori warna yang telah dipelajari sebelumnya oleh model KNN. Model dan scaler yang digunakan telah disimpan sebelumnya (knn_model.pkl dan scaler.pkl), sehingga program dapat langsung memuatnya untuk prediksi tanpa perlu melatih ulang.
+
+2.SVM (Support Vector Machine) : Program ini merupakan sistem deteksi warna berbasis Support Vector Machine (SVM) yang bekerja dengan menangkap gambar dari kamera, mengekstrak warna rata-rata dari area tengah layar, dan mengklasifikasikannya berdasarkan dataset warna yang telah dilatih sebelumnya. Model SVM digunakan untuk memprediksi warna, dan hasil prediksi ditampilkan di layar secara real-time.
+
+Diskusi :
+
+1.KNN
+	a)Kelebihan
+		• Program ini berjalan secara langsung menggunakan kamera, memungkinkan deteksi warna secara instan.
+		• Program hanya mengambil satu piksel di tengah layar, sehingga komputasi lebih ringan dibandingkan mengambil rata-rata warna dari seluruh gambar.
+		• Tidak perlu melatih model setiap kali dijalankan karena sudah disimpan dalam file .pkl.
+	b)Kekurangan
+		•Warna di satu piksel bisa terpengaruh oleh noise, pencahayaan, atau refleksi. Akan lebih baik jika rata-rata warna dari area kecil digunakan.
+		•KNN cukup sederhana dan mungkin tidak seakurat model berbasis CNN (Convolutional Neural Network) untuk klasifikasi warna yang lebih kompleks.
+2.SVM
+	a)Kelebihan
+		•Prediksi warna dilakukan secara langsung menggunakan video dari kamera.
+		•Model SVM dengan kernel RBF dapat menangani hubungan kompleks antar warna.
+		•Jika prediksi SVM tidak akurat, program mencoba mencari warna terdekat dalam dataset.
+	b)Kekurangan
+		•Area persegi kecil mungkin tidak mewakili keseluruhan warna objek yang diamati.
+		•Perubahan pencahayaan dapat menyebabkan kesalahan prediksi karena dataset tidak beradaptasi dengan kondisi pencahayaan yang berbeda.
+		•Jika dataset warna terlalu besar, SVM bisa menjadi lebih lambat
